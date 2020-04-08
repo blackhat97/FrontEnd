@@ -1,0 +1,54 @@
+@import '~src/scss/helpers/variables';
+@import '~src/scss/helpers/mixins';
+
+.navarea {
+  overflow: hidden;
+  height: 100px;
+}
+
+.capsule {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(140, 114, 101);
+
+}
+
+nav {
+  width: 100vw;
+  height: 60px;
+  background: white;
+}
+
+ul {
+  padding-left: 0;
+  display: flex;
+  list-style: none outside none;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  padding: 20px 50px;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .capsule {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li {
+    padding: 20px 30px;
+  }
+
+}

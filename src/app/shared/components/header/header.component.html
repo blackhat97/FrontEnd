@@ -1,0 +1,41 @@
+<div class="navarea">
+  <!--
+  <app-search (onHideSearch)="showSearch = false" [showSearch]="showSearch" class="site-search-wrapper"></app-search>
+  -->
+  <!--
+  <app-navigation-main></app-navigation-main>
+  -->
+  
+  <nav>
+    <div class="capsule">
+      <a [routerLink]="['/']" routerLinkActive="router-link-active">
+        <div id="weblogo">
+          <img src="./img/logo.png" alt="logo" width="160">
+        </div>
+      </a>
+      <ul>
+        <li *ngFor="let item of menuItems">
+          <a routerLink="{{item.link}}" [style.color]="'white'">
+            <b>{{item.name | translate | uppercase}}</b>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Toolbar-->
+  <!--
+  <div class="toolbar">
+    <div class="inner">
+      <div class="tools">
+        <div class="search">
+          <i (click)="showSearch = true" class="icon-search"></i>
+        </div>
+        <div class="account">
+          <i class="icon-head"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+</div>

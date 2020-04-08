@@ -1,3 +1,4 @@
+import { TabsModule } from './tabs/tabs.module';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -6,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSiemaModule } from 'ngx-siema';
 import { MaterialModule } from '../shared/modules/material.module';
+import { ComicModule } from '../comic/comic.module';
 
 @NgModule({
   imports: [
@@ -16,15 +18,19 @@ import { MaterialModule } from '../shared/modules/material.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    TabsModule,
+    ComicModule,
     NgxSiemaModule.forRoot()
   ],
   exports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   declarations: [
-],
+  ],
   providers: [
+
   ]
 })
 

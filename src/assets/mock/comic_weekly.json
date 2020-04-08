@@ -1,0 +1,43 @@
+{
+    "state": "200",
+    "message": "success",
+    "data": {
+      "weeklyList": [
+        {
+          "id": 7,
+          "cover": "http://api.webcomics.pk:3000/upload/posters/truebeauty.jpg",
+          "title": "True Beauty",
+          "author": "Yaongyi",
+          "day" : "mon"
+        },
+        {
+          "id": 8,
+          "cover": "http://api.webcomics.pk:3000/upload/posters/bts-save-me.jpg",
+          "title": "SAVE ME",
+          "author": "muslimmanga",
+          "day" : "tue"
+        },
+        {
+          "id": 9,
+          "cover": "http://api.webcomics.pk:3000/upload/posters/days-of-hana.jpg",
+          "title": "Days of Hana",
+          "author": "Seokwoo",
+          "day" : "wed"
+        },
+        {
+          "id": 10,
+          "cover": "http://api.webcomics.pk:3000/upload/posters/lookism.jpg",
+          "title": "Lookism",
+          "author": "Taejoon Park",
+          "day" : "thu"
+        },
+        {
+          "id": 11,
+          "cover": "http://api.webcomics.pk:3000/upload/posters/refundhighschool.jpg",
+          "title": "Refund High School",
+          "author": "LICO",
+          "day" : "fri"
+        }
+      ]
+    }
+  }
