@@ -25,12 +25,15 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/img"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/scss/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/modernizr.js"
+            ]
           },
           "configurations": {
             "production": {
