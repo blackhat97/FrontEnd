@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from 'src/app/shared/modules/material.module';
-import { ComicReaderComponent } from './comic-reader/comic-reader.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicCommentComponent } from './comic-comment/comic-comment.component';
+import { ComicViewerComponent } from './comic-viewer/comic-viewer.component';
 import { ComicService } from './shared/comic.service';
 
+import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
+    PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 @NgModule({
     imports: [
         RouterModule,
@@ -18,12 +20,13 @@ import { ComicService } from './shared/comic.service';
         FormsModule,
         ReactiveFormsModule,
         MaterialModule,
+        PerfectScrollbarModule,
     ],
     exports: [
-        ComicReaderComponent,
+        ComicViewerComponent,
     ],
     declarations: [
-        ComicReaderComponent,
+        ComicViewerComponent,
         ComicDetailComponent,
         ComicCommentComponent,
     ],

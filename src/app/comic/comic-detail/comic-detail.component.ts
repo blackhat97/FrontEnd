@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   templateUrl: './comic-detail.component.html',
   styleUrls: ['./comic-detail.component.scss']
 })
-export class ComicDetailComponent implements OnInit {
+export class ComicDetailComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
 
   constructor(
@@ -22,6 +22,14 @@ export class ComicDetailComponent implements OnInit {
     .subscribe((params: Params) => {
       console.log(params);
     });
+
+  }
+
+
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

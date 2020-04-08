@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TopComponent } from './core/tabs/top/top.component';
 import { ComicDetailComponent } from './comic/comic-detail/comic-detail.component';
-import { ComicReaderComponent } from './comic/comic-reader/comic-reader.component';
+import { ComicViewerComponent } from './comic/comic-viewer/comic-viewer.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'genres', component: GenresComponent },
 
   { path: 'detail/:seriesId', component: ComicDetailComponent },
-  { path: 'reader/:episodeId', component: ComicReaderComponent },
+  { path: 'viewer/:episodeId', component: ComicViewerComponent },
 
   { path: '**', component: PageNotFoundComponent }
 
