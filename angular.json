@@ -29,6 +29,7 @@
               "src/img"
             ],
             "styles": [
+              "src/styles.scss",
               "src/scss/styles.scss"
             ],
             "scripts": [

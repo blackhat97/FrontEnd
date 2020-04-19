@@ -1,33 +1,51 @@
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WebpackTranslateLoader } from './webpack-translate-loader';
+import { StorageService } from './shared/services/storage/storage.service';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+
+/* CORE MODULE */
+import { CoreModule } from './core/core.module';
+/* ROUTING */
+import { AppRoutingModule } from './app-routing.module';
+/* COMPONENT */
+import { AppComponent } from './app.component';
+import { ComicListComponent } from './comics/comic-list/comic-list.component';
+import { ComicsComponent } from './comics/comics.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+/* SHARED */
 import { SharedModule } from './shared/shared.module';
-import { ComicModule } from './comic/comic.module';
+import { SeriesComponent } from './comics/series/series.component';
+import { ViewerComponent } from './comics/viewer/viewer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent,
+   declarations: [
+      AppComponent,
+      ComicsComponent,
+      ComicListComponent,
+      SeriesComponent,
+      ViewerComponent,
+      PageNotFoundComponent,
+   ],
+   imports: [
+      TranslateModule.forRoot({
+         loader: {
+            provide: TranslateLoader,
+            useClass: WebpackTranslateLoader
+         }
+      }),
+      BrowserModule,
+      AppRoutingModule,
+      LazyLoadImageModule,
+      CoreModule,
+      SharedModule,
+      DeviceDetectorModule.forRoot()
   ],
-  imports: [
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useClass: WebpackTranslateLoader
-      }
-    }),
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
-    SharedModule,
+  providers: [
+   StorageService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

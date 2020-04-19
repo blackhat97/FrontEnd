@@ -1,0 +1,94 @@
+<div class="loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<ng-template [ngIf]="!isLoadingResults">
+  <div
+    class="movie"
+    (swipeleft)="swipe($event.type)"
+    (swiperight)="swipe($event.type)"
+    *ngIf="series"
+  >
+    <div
+      class="image-rotator"
+      [ngStyle]="{
+        'background-image':
+          'url(' +
+          'http://api.webcomics.pk:3000/upload' +
+          series.coverURL +
+          ')'
+      }"
+    ></div>
+    <div class="vignette"></div>
+    <div class="movie__head">
+      <button class="btn-back" (click)="back()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2>{{ series.title }}</h2>
+    </div>
+    <div class="movie__body">
+      <div class="movie--infos">
+        <p>
+          <mat-icon
+            [ngClass]="'mat-red'"
+            >star</mat-icon>
+          {{ series.favorite }}
+        </p>
+      </div>
+      <div class="movie--genre">
+        <ul>
+          <li *ngFor="let genre of series.genres">
+            <a [routerLink]="['/genre', { name: genre }]">
+              {{ genre }}</a>
+          </li>
+        </ul>
+      </div>
+      <p class="movie--overview">{{ series.description }}</p>
+      <div class=" movie--actions">
+        <button mat-button (click)="shareDialog(series)">
+          <mat-icon class="mat-yellow">share</mat-icon>
+          {{ "Series.Share" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <mat-tab-group class="movie__tab">
+    <mat-tab label="{{ 'Series.Episodes' | translate }}">
+      <section class="movie--cast" *ngIf="series.chapters.length > 0; else noChapter">
+        <div class="cast" *ngFor="let chapter of series.chapters">
+          <a [routerLink]="['/viewer', chapter.chapterID]">
+            <div
+              class="icon-container avatar"
+              [ngStyle]="{
+                'background-image':
+                  'url(' +
+                  'http://api.webcomics.pk:3000/upload' +
+                  chapter.thumbURL +
+                  ')'
+              }"
+            >
+            </div>
+            <h3>{{ chapter.name }}</h3>
+            <p>#{{ chapter.index }}</p>
+            <p>{{ chapter.date | date}}</p>
+          </a>
+        </div>
+      </section>
+      <ng-template #noChapter>
+        <h3>
+          {{ "Movie-list.No results" | translate }}
+          <mat-icon>sentiment_very_dissatisfied</mat-icon>
+        </h3>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'Series.Similar' | translate }}">
+      <section class="movie--similar items" *ngIf="similarComics">
+        <app-comic-list
+          [comics]="similarComics"
+          [lang]="lang"
+          [title]="title"
+        >
+        </app-comic-list>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>

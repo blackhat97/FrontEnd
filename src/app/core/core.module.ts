@@ -6,8 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSiemaModule } from 'ngx-siema';
-import { MaterialModule } from '../shared/modules/material.module';
-import { ComicModule } from '../comic/comic.module';
+import { SharedMaterialModule } from '../shared/shared-material.module';
 
 @NgModule({
   imports: [
@@ -17,9 +16,8 @@ import { ComicModule } from '../comic/comic.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SharedMaterialModule,
     TabsModule,
-    ComicModule,
     NgxSiemaModule.forRoot()
   ],
   exports: [

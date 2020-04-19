@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+  <ng-template [ngIf]="contents">
+    <div *ngFor="let content of contents">
+      <img *ngIf="content.imgURL" [defaultImage]="'/img/no_poster_available.jpg'" [lazyLoad]="'http://api.webcomics.pk:3000/upload' + content.imgURL"
+      alt="poster comic">
+      <img *ngIf="!content.imgURL" src="/img/no_poster_available.jpg" alt="No poster available">
+    </div>
+  </ng-template>
+</div>

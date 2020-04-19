@@ -4,19 +4,19 @@ import { WeeklyComponent } from './core/tabs/weekly/weekly.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TopComponent } from './core/tabs/top/top.component';
-import { ComicDetailComponent } from './comic/comic-detail/comic-detail.component';
-import { ComicViewerComponent } from './comic/comic-viewer/comic-viewer.component';
+import { ComicsComponent } from './comics/comics.component';
+import { SeriesComponent } from './comics/series/series.component';
+import { ViewerComponent } from './comics/viewer/viewer.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/weekly', pathMatch: 'full' },
-  { path: 'weekly', component: WeeklyComponent },
-  { path: 'top', component: TopComponent },
-  { path: 'genres', component: GenresComponent },
+  { path: 'comics/:category', component: ComicsComponent, runGuardsAndResolvers: 'always' },
+  { path: 'series/:id', component: SeriesComponent },
+  { path: 'viewer/:id', component: ViewerComponent },
 
-  { path: 'detail/:seriesId', component: ComicDetailComponent },
-  { path: 'viewer/:episodeId', component: ComicViewerComponent },
+  { path: 'about', loadChildren: () => import('src/app/pages/about/about.module').then(m => m.AboutModule) },
 
+  { path: '', redirectTo: '/comics/weekly', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
 ];

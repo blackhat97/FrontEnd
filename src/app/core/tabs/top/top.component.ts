@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ComicService } from 'src/app/comic/shared/comic.service';
-import { Comic } from 'src/app/shared/models/comic.model';
+import { ComicService } from 'src/app/shared/services/database/comic.service';
 
 @Component({
   selector: 'app-top',
@@ -30,7 +29,6 @@ export class TopComponent implements OnInit, OnDestroy {
       .getTop()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((products) => {
-        this.comics = <Comic[]>products;
         this.productsLoading = false;
       });
   }

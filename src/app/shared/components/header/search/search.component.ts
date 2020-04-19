@@ -9,7 +9,7 @@ import {
 
 import { Subject } from 'rxjs';
 import { debounceTime ,  distinctUntilChanged ,  filter ,  switchMap } from 'rxjs/operators';
-import { ComicService } from 'src/app/comic/shared/comic.service';
+import { ComicService } from 'src/app/shared/services/database/comic.service';
 
 
 @Component({

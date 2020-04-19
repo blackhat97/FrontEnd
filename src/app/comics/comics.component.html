@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+  <ng-template [ngIf]="comics">
+    <mat-tab-group>
+      <mat-tab label="Mon"></mat-tab>
+      <mat-tab label="Tue"></mat-tab>
+      <mat-tab label="Wen"></mat-tab>
+      <mat-tab label="Thu"></mat-tab>
+      <mat-tab label="Fri"></mat-tab>
+      <mat-tab label="Sat"></mat-tab>
+      <mat-tab label="Sun"></mat-tab>
+    </mat-tab-group>
+    <app-comic-list
+      [comics]="comics"
+      [lang]="lang"
+      [title]="title"
+    >
+    </app-comic-list>
+  </ng-template>
+</div>

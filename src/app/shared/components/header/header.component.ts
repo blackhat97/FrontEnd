@@ -34,9 +34,9 @@ export class HeaderComponent implements OnInit {
 
   private loadMenus(): void {
     this.menuItems = [
-      {link: '/weekly', name: 'weekly'},
-      {link: '/top', name: 'top'},
-      {link: '/genres', name: 'genres'}
+      {link: '/comics/weekly', name: 'weekly'},
+      {link: '/comics/top', name: 'top'},
+      {link: '/comics/genres', name: 'genres'}
     ];
   }
 

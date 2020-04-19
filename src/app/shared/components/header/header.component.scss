@@ -3,7 +3,7 @@
 
 .navarea {
   overflow: hidden;
-  height: 100px;
+  height: 150px;
 }
 
 .capsule {
@@ -38,6 +38,7 @@ a:active {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  font-size: 20px;
 }
 
 @media (max-width: 480px) {
