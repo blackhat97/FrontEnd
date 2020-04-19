@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'viewer/:id', component: ViewerComponent },
 
   { path: 'about', loadChildren: () => import('src/app/pages/about/about.module').then(m => m.AboutModule) },
+  { path: 'sign-in', loadChildren: () => import('src/app/pages/login/login.module').then(m => m.LoginModule) },
 
   { path: '', redirectTo: '/comics/weekly', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

@@ -6,5 +6,7 @@ export interface ComicDetailsModel {
     favorite: number;
     view: number;
     description: string;
+    genres: string[];
+    chapters: [];
 }
 
