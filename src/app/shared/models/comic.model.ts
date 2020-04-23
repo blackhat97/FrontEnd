@@ -7,3 +7,4 @@ export interface ComicModel {
     day: string;
     genre: string[];
 }
+

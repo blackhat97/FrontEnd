@@ -4,8 +4,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ComicCategoryModel } from '../../../shared/models/comic-category.model';
+import { ComicCategoryModel } from '../../models/comic-category.model';
 import { ComicDetailsModel } from '../../models/movie-details.model';
+import { ComicStoreService, PageListData } from './comic-store.service';
+import { Page } from '../../models/page.model';
+import { ImagesService } from './images.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,8 @@ export class ComicService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private imageService: ImagesService,
+    private comicStoreService: ComicStoreService
   ) { }
 
 
@@ -55,6 +60,23 @@ export class ComicService {
       ${searchURL}?query=${name}&page=${page}
     `);
   }
+
+  
+
+  private loadComicType(chapterID: string, setter: (comics: Page[]) => void) {
+    this.comicStoreService.getCachedPageList(chapterID).then((cached: Page[]) => {
+        setter(cached);
+        this.http.get(comicURL + '/contents/' + chapterID).toPromise()
+            .then((data: PageListData[]) => {
+                data.forEach(item => item.imgurl = this.imageService.getImageUrl(item.imgurl));
+                setter(data.map(this.comicStoreService.unpackPageListItem));
+                this.comicStoreService.cachePageList(data, name);
+            }).catch((e) => {
+                console.error(e);
+            });
+    });
+  }
+
 
   /*
   public getWeekly() {

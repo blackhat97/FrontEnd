@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Params, Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { StorageService } from '../shared/services/storage/storage.service';
 import { Subscription, Observable } from 'rxjs';
-import { ComicService } from '../shared/services/database/comic.service';
+import { ComicService } from '../shared/services/comic/comic.service';
 import { ComicModel } from '../shared/models/comic.model';
 
 @Component({

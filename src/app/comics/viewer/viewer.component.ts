@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import { ComicService } from 'src/app/shared/services/database/comic.service';
+import { ComicService } from 'src/app/shared/services/comic/comic.service';
 
 @Component({
   selector: 'app-viewer',

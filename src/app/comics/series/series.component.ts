@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareModalComponent } from 'src/app/shared/components/share-modal/share-modal.component';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ComicService } from 'src/app/shared/services/database/comic.service';
+import { ComicService } from 'src/app/shared/services/comic/comic.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ComicDetailsModel } from 'src/app/shared/models/movie-details.model';
 import { forkJoin } from 'rxjs';

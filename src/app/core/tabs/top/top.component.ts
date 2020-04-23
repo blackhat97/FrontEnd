@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ComicService } from 'src/app/shared/services/database/comic.service';
+import { ComicService } from 'src/app/shared/services/comic/comic.service';
 
 @Component({
   selector: 'app-top',

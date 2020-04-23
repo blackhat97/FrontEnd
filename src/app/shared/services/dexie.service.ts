@@ -8,7 +8,6 @@ export class DexieService extends Dexie {
         this.version(1).stores({
             comic: 'comicurl',
             comics: 'comicurl',
-            myComics: 'comicurl',
             pagesRead: 'comicurl'
         });
     }
