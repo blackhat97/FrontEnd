@@ -140,6 +140,9 @@
                 flex-wrap: wrap;
                 margin-top: 30px;
 
+                @media only screen and (max-width: 731px) {
+                    flex-direction: column;
+                }
 
                 .cast {
                     display: flex;

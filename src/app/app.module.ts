@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
 import { SeriesComponent } from './comics/series/series.component';
 import { ViewerComponent } from './comics/viewer/viewer.component';
 import { ViewerCommentComponent } from './comics/viewer/viewer-comment/viewer-comment.component';
+import { ViewerArrowComponent } from './comics/viewer/viewer-arrow/viewer-arrow.component';
 
 @NgModule({
    declarations: [
@@ -29,6 +30,7 @@ import { ViewerCommentComponent } from './comics/viewer/viewer-comment/viewer-co
       SeriesComponent,
       ViewerComponent,
       ViewerCommentComponent,
+      ViewerArrowComponent,
       PageNotFoundComponent,
    ],
    imports: [

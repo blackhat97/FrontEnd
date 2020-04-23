@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
     const isTablet = this.deviceService.isTablet();
     
     if(isMobile || isTablet) {
-      console.log('hello');
+      console.log('isMobile');
     }
   }
 
