@@ -18,6 +18,7 @@
     padding: 10px 15px;
     vertical-align: middle;
     &:last-child { text-align: right; }
+    &:nth-child(2) { text-align: center; }
     &:first-child { text-align: left; }
   }
 

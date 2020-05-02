@@ -144,6 +144,12 @@
                     flex-direction: column;
                 }
 
+                .row-full{
+                    width: 100vw;
+                    position: relative;
+                    height: 100px;
+                }
+
                 .cast {
                     display: flex;
                     flex-direction: column;
@@ -165,12 +171,12 @@
                     flex-shrink: 0;
                     width: 60px;
                     height: 60px;
-                    border-radius: 50%;
+                    border-radius: 10%;
                     object-fit: cover;
                 }
             
-                h3 {
-                    color: $primary-light;
+                h4 {
+                    color: $grey;
                     margin: 20px 0 0;
                 }
                 

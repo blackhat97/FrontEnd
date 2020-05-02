@@ -1,9 +1,6 @@
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { GenresComponent } from './core/tabs/genres/genres.component';
-import { WeeklyComponent } from './core/tabs/weekly/weekly.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TopComponent } from './core/tabs/top/top.component';
 import { ComicsComponent } from './comics/comics.component';
 import { SeriesComponent } from './comics/series/series.component';
 import { ViewerComponent } from './comics/viewer/viewer.component';

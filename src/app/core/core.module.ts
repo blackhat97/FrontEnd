@@ -1,4 +1,3 @@
-import { TabsModule } from './tabs/tabs.module';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -7,6 +6,10 @@ import {RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSiemaModule } from 'ngx-siema';
 import { SharedMaterialModule } from '../shared/shared-material.module';
+import { ComicStoreService } from '../shared/services/comic/comic-store.service';
+import { ImagesService } from '../shared/services/comic/images.service';
+import { ComicService } from '../shared/services/comic/comic.service';
+import { SearchService } from '../shared/services/comic/search.service';
 
 @NgModule({
   imports: [
@@ -17,7 +20,6 @@ import { SharedMaterialModule } from '../shared/shared-material.module';
     FormsModule,
     ReactiveFormsModule,
     SharedMaterialModule,
-    TabsModule,
     NgxSiemaModule.forRoot()
   ],
   exports: [
@@ -27,9 +29,7 @@ import { SharedMaterialModule } from '../shared/shared-material.module';
   ],
   declarations: [
   ],
-  providers: [
-
-  ]
+  providers: [ComicService, SearchService, ImagesService, ComicStoreService]
 })
 
 export class CoreModule {
