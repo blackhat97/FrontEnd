@@ -1,7 +1,7 @@
 <div class="items" *ngIf="comics && comics.length > 0; else noData">
   <div class="item" ngClass="col-6 col-ms-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let comic of comics">
     <a [routerLink]="['/series', comic.comicID]">
-      <img *ngIf="comic.thumbnailURL" [defaultImage]="'/img/no_poster_available.jpg'" [lazyLoad]="'http://api.webcomics.pk/upload' + comic.thumbnailURL"
+      <img *ngIf="comic.thumbnailURL" [defaultImage]="'/img/no_poster_available.jpg'" [lazyLoad]="'https://api.webcomics.pk/upload' + comic.thumbnailURL"
         alt="poster comic">
       <img *ngIf="!comic.thumbnailURL" src="/img/no_poster_available.jpg" alt="No poster available">
     </a>
