@@ -5,7 +5,7 @@ import { ShareModalComponent } from 'src/app/shared/components/share-modal/share
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ComicService } from 'src/app/shared/services/comic/comic.service';
 import { TranslateService } from '@ngx-translate/core';
-import { ComicDetailsModel } from 'src/app/shared/models/movie-details.model';
+import { ComicDetailModel } from 'src/app/shared/models/comic-detail.model';
 import { forkJoin } from 'rxjs';
 import { ComicModel } from 'src/app/shared/models/comic.model';
 
@@ -16,7 +16,7 @@ import { ComicModel } from 'src/app/shared/models/comic.model';
 })
 export class SeriesComponent implements OnInit {
   id: number;
-  series: ComicDetailsModel;
+  series: ComicDetailModel;
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
   isLoadingResults: boolean;
   isConnected = false;

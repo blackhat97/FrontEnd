@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ComicCategoryModel } from '../../models/comic-category.model';
-import { ComicDetailsModel } from '../../models/movie-details.model';
+import { ComicDetailModel } from '../../models/comic-detail.model';
 import { ComicStoreService, PageListData } from './comic-store.service';
-import { Page } from '../../models/page.model';
+import { PageModel } from '../../models/page.model';
 import { ImagesService } from './images.service';
+import { ComicViewerModel } from '../../models/comic-viewer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -46,14 +47,14 @@ export class ComicService {
       ${comicURL}/rank
     `);
   }
-  getDetailsComic(comicID: number): Observable<ComicDetailsModel> {
-    return this.http.get<ComicDetailsModel>(`${comicURL}/${comicID}`);
+  getDetailsComic(comicID: number): Observable<ComicDetailModel> {
+    return this.http.get<ComicDetailModel>(`${comicURL}/${comicID}`);
   }
   getSimilarComics(comicID: number): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`${comicURL}/${comicID}/similar`);
   }
-  getEpisodeContents(chapterID: number): Observable<ComicCategoryModel> {
-    return this.http.get<ComicCategoryModel>(`${comicURL}/contents/${chapterID}`);
+  getEpisodeContents(chapterID: number): Observable<ComicViewerModel> {
+    return this.http.get<ComicViewerModel>(`${comicURL}/contents/${chapterID}`);
   }
   getSearchComic(name: string, page: number): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`
@@ -63,8 +64,8 @@ export class ComicService {
 
   
 
-  private loadComicType(chapterID: string, setter: (comics: Page[]) => void) {
-    this.comicStoreService.getCachedPageList(chapterID).then((cached: Page[]) => {
+  private loadComicType(chapterID: string, setter: (comics: PageModel[]) => void) {
+    this.comicStoreService.getCachedPageList(chapterID).then((cached: PageModel[]) => {
         setter(cached);
         this.http.get(comicURL + '/contents/' + chapterID).toPromise()
             .then((data: PageListData[]) => {

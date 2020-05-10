@@ -1,5 +1,5 @@
-export class Page {
-    static empty = new Page(0, 0, 0, '', '');
+export class PageModel {
+    static empty = new PageModel(0, 0, 0, '', '');
     constructor(
         public pageID: number,
         public pageNumber: number,

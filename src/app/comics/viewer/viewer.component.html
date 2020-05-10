@@ -1,16 +1,17 @@
+<h1>{{ content.name }}</h1>
 <div class="row">
   <div class="loading-shade" *ngIf="loading">
     <mat-spinner *ngIf="loading"></mat-spinner>
   </div>
-  <ng-template [ngIf]="contents">
-    <div *ngFor="let content of contents">
-      <img *ngIf="content.imgURL" [src]="'https://api.webcomics.pk/upload' + content.imgURL"
+  <ng-template [ngIf]="content.pages">
+    <div *ngFor="let page of content.pages">
+      <img *ngIf="page.imgURL" [src]="'https://api.webcomics.pk/upload' + page.imgURL"
       alt="poster comic">
-      <img *ngIf="!content.imgURL" src="/img/no_poster_available.jpg" alt="No poster available">
+      <img *ngIf="!page.imgURL" src="/img/no_poster_available.jpg" alt="No poster available">
     </div>
 
 
-    <app-viewer-arrow (prev)="onPrev()" (continue)="onNext()"></app-viewer-arrow>
+    <app-viewer-arrow (prev)="onPrev()" (next)="onNext()"></app-viewer-arrow>
 
     <app-viewer-comment></app-viewer-comment>
 

@@ -1,5 +1,5 @@
 
-export interface ComicDetailsModel {
+export interface ComicDetailModel {
     title: string;
     coverURL: string;
     author: string;

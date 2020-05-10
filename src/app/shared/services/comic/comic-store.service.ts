@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 import { DexieService } from '../dexie.service';
-import { Page } from '../../models/page.model';
+import { PageModel } from '../../models/page.model';
 
 
 export interface PageListData {
@@ -20,7 +20,7 @@ export class ComicStoreService {
     ) { }
     
     unpackPageListItem(entry: PageListData) {
-        return new Page(
+        return new PageModel(
             entry.pageid,
             entry.pageNumber,
             entry.chapterid,
@@ -47,7 +47,7 @@ export class ComicStoreService {
             return data.map(this.unpackPageListItem);
         }).catch((e) => {
             console.error(e);
-            return new Array<Page>();
+            return new Array<PageModel>();
         });
     }
 

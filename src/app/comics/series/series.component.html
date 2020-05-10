@@ -54,7 +54,7 @@
   <mat-tab-group class="movie__tab">
     <mat-tab label="{{ 'Series.Episodes' | translate }}">
       <section class="movie--cast" *ngIf="series.chapters.length > 0; else noChapter">
-        <div class="cast" *ngFor="let chapter of series.chapters">
+        <div *ngFor="let chapter of series.chapters">
           <a [routerLink]="['/viewer', chapter.chapterID]">
             <div class="row row-full justify-content-md-center">
               <div class="col">
@@ -72,14 +72,13 @@
               </div>
               <div class="col">
                 <h4>{{ chapter.name }}</h4>
-                <!--
-                  #{{ chapter.index }}
-                -->
+                <label>#{{ chapter.index }}</label>
                 <p>{{ chapter.date | date}}</p>
               </div>
             </div>
           </a>
         </div>
+
       </section>
       <ng-template #noChapter>
         <h3>

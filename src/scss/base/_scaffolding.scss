@@ -1,13 +1,22 @@
 //
 // Scaffolding
 // --------------------------------------------------
+@import '../../assets/scss/palette';
 
 html * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
 body {
   background: {
     position: center;
@@ -23,18 +32,56 @@ body {
   }
   text-transform: $text-transform-base;
   line-height: $line-height-base;
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto";
+  font-size: 1rem;
+  background-color: $white;
+}
+
+/* Launcher */
+.launcher {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  text-align: center;
+  color: $black;
 }
 
 // Links
 a {
   color: $link-color;
   text-decoration: underline;
+  cursor: pointer;
+  text-decoration: none;
+  color: $primary-light;
+  outline: none;
 
   &:hover {
     color: $link-hover-color;
     text-decoration: none;
   }
   &:focus { outline: none; }
+}
+a,
+button {
+  &:focus,
+  &:active {
+    outline: none;
+  }
 }
 
 .small, small { font-size: 85%; }
@@ -138,4 +185,70 @@ figure {
     left: 30px;
   }
   @media (max-width: $screen-xl) { padding: 0 15px; }
+}
+
+
+
+/* img poster comic */
+.icon-container {
+  background-position: center;
+  background-size: cover;
+  border: 1px solid $primary-light;
+  line-height: 2;
+
+  .icon-person,
+  .icon-movie {
+    color: $primary-light;
+  }
+}
+
+
+.material-icons {
+  vertical-align: middle;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+.mat-dialog-actions {
+  color: $primary-light;
+}
+.mat {
+  &-menu-item {
+    color: $primary-light;
+  }
+}
+.mat-tab {
+  &-labels {
+    justify-content: center;
+  }
+  &-label {
+    color: $black;
+    opacity: 1 !important;
+  }
+  &-header-pagination-chevron {
+    border-color: black;
+  }
+}
+
+/* img poster comic */
+.icon-container {
+  background-position: center;
+  background-size: cover;
+  border: 1px solid $primary-light;
+  line-height: 2;
+
+  .icon-person,
+  .icon-movie {
+    color: $primary-light;
+  }
 }
