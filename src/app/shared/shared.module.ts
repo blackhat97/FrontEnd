@@ -11,6 +11,9 @@ import { SearchComponent } from './components/header/search/search.component';
 import { NavigationMainComponent } from './components/header/navigation-main/navigation-main.component';
 import { DexieService } from './services/dexie.service';
 import { ShareModalComponent } from './components/share-modal/share-modal.component';
+import { UserService } from './services/user.service';
+import { JwtService } from './services/jwt.service';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   imports: [
@@ -40,7 +43,10 @@ import { ShareModalComponent } from './components/share-modal/share-modal.compon
     ShareModalComponent,
   ],
   providers: [
-    DexieService
+    DexieService,
+    ApiService,
+    UserService,
+    JwtService,
   ]
 })
 
