@@ -2,7 +2,7 @@
   <div class="loading-shade" *ngIf="loading">
     <mat-spinner *ngIf="loading"></mat-spinner>
   </div>
-  <ng-template [ngIf]="comics">
+  <ng-template [ngIf]="comics && comicsType.category=='weekly'">
     <mat-tab-group>
       <mat-tab label="Mon"></mat-tab>
       <mat-tab label="Tue"></mat-tab>
@@ -11,6 +11,24 @@
       <mat-tab label="Fri"></mat-tab>
       <mat-tab label="Sat"></mat-tab>
       <mat-tab label="Sun"></mat-tab>
+    </mat-tab-group>
+    <app-comic-list
+      [comics]="comics"
+      [lang]="lang"
+      [title]="title"
+    >
+    </app-comic-list>
+  </ng-template>
+  <ng-template [ngIf]="comics && comicsType.category=='weekly'">
+    
+  </ng-template>
+  <ng-template [ngIf]="comics && comicsType.category=='genres'">
+    <mat-tab-group>
+      <mat-tab label="Romance"></mat-tab>
+      <mat-tab label="Drama"></mat-tab>
+      <mat-tab label="Fantasy"></mat-tab>
+      <mat-tab label="Action"></mat-tab>
+      <mat-tab label="Slice of Life"></mat-tab>
     </mat-tab-group>
     <app-comic-list
       [comics]="comics"

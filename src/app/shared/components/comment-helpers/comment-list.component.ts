@@ -1,24 +1,33 @@
+import { Comment } from './../../models/comment.model';
 import { Component, Input } from '@angular/core';
-import { Comment } from '../../shared/models/comment.model';
 import { CommentsService } from 'src/app/shared/services/comment.service';
+import { CommentListConfig } from '../../models/comment-list-config.model';
 
 @Component({
-  selector: 'app-article-list',
-  styleUrls: ['comment-list.component.css'],
+  selector: 'app-comment-list',
+  styleUrls: ['comment-list.component.scss'],
   templateUrl: './comment-list.component.html'
 })
 export class CommentListComponent {
   constructor (
     private commentsService: CommentsService
-  ) {}
+  ) {
+  }
 
   @Input() limit: number;
+  @Input()
+  set config(config: CommentListConfig) {
+    if (config) {
+      this.query = config;
+      this.currentPage = 1;
+      this.runQuery();
+    }
+  }
 
-
+  query: CommentListConfig;
   results: Comment[];
   loading = false;
   currentPage = 1;
-  totalPages: Array<number> = [1];
 
   setPageTo(pageNumber) {
     this.currentPage = pageNumber;
@@ -29,14 +38,12 @@ export class CommentListComponent {
     this.loading = true;
     this.results = [];
 
-
-    this.commentsService.query()
+    this.commentsService.query(this.query)
     .subscribe(data => {
       this.loading = false;
-      this.results = data.articles;
+      console.log(data);
+      this.results = data.comments;
 
-      // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
-      this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
     });
   }
 }

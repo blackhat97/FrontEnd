@@ -18,7 +18,7 @@ export class ComicsComponent implements OnInit {
   loading: boolean;
   lang: string;
   navigationSubscription: Subscription;
-  moviesType: Params;
+  comicsType: Params;
 
   constructor(
     private comicService: ComicService,
@@ -34,7 +34,7 @@ export class ComicsComponent implements OnInit {
       }
     });
     this.route.params.subscribe((params: Params) => {
-      this.moviesType = params;
+      this.comicsType = params;
     });
   }
 
@@ -70,7 +70,7 @@ export class ComicsComponent implements OnInit {
   }
 
   reloadScroll() {
-    this.getComics(this.moviesType);
+    this.getComics(this.comicsType);
   }
 
 

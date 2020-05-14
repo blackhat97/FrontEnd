@@ -1,4 +1,3 @@
-import { comicURL, searchURL } from '../../../configs/url.config';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +9,9 @@ import { ComicStoreService, PageListData } from './comic-store.service';
 import { PageModel } from '../../models/page.model';
 import { ImagesService } from './images.service';
 import { ComicViewerModel } from '../../models/comic-viewer.model';
+import { environment } from 'src/environments/environment.prod';
 
+const URL = environment.api_url;
 @Injectable({
   providedIn: 'root'
 })
@@ -27,47 +28,46 @@ export class ComicService {
   getComic(category: string, lang: string) {
     switch (category) {
       case 'weekly': return this.getWeekly();
-      case 'genre': return this.getGenre();
+      case 'genres': return this.getGenre();
       case 'top': return this.getTop();
     }
   }
 
   getWeekly(): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`
-      ${comicURL}/weekly
+      ${URL}/comic/weekly
     `);
   }
   getGenre(): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`
-      ${comicURL}/weekly
+      ${URL}/comic/weekly
     `);
   }
   getTop(): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`
-      ${comicURL}/rank
+      ${URL}/comic/rank
     `);
   }
   getDetailsComic(comicID: number): Observable<ComicDetailModel> {
-    return this.http.get<ComicDetailModel>(`${comicURL}/${comicID}`);
+    return this.http.get<ComicDetailModel>(`${URL}/comic/${comicID}`);
   }
   getSimilarComics(comicID: number): Observable<ComicCategoryModel> {
-    return this.http.get<ComicCategoryModel>(`${comicURL}/${comicID}/similar`);
+    return this.http.get<ComicCategoryModel>(`${URL}/comic/${comicID}/similar`);
   }
   getEpisodeContents(chapterID: number): Observable<ComicViewerModel> {
-    return this.http.get<ComicViewerModel>(`${comicURL}/contents/${chapterID}`);
+    return this.http.get<ComicViewerModel>(`${URL}/comic/contents/${chapterID}`);
   }
   getSearchComic(name: string, page: number): Observable<ComicCategoryModel> {
     return this.http.get<ComicCategoryModel>(`
-      ${searchURL}?query=${name}&page=${page}
+      ${URL}?query=${name}&page=${page}
     `);
   }
 
   
-
   private loadComicType(chapterID: string, setter: (comics: PageModel[]) => void) {
     this.comicStoreService.getCachedPageList(chapterID).then((cached: PageModel[]) => {
         setter(cached);
-        this.http.get(comicURL + '/contents/' + chapterID).toPromise()
+        this.http.get(URL + '/comic/contents/' + chapterID).toPromise()
             .then((data: PageListData[]) => {
                 data.forEach(item => item.imgurl = this.imageService.getImageUrl(item.imgurl));
                 setter(data.map(this.comicStoreService.unpackPageListItem));

@@ -1,5 +1,5 @@
+import { Comment } from './../../models/comment.model';
 import { Component, Input } from '@angular/core';
-import { Comment } from '../../shared/models/comment.model';
 
 
 @Component({

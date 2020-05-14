@@ -13,7 +13,7 @@
       [ngStyle]="{
         'background-image':
           'url(' +
-          'https://api.webcomics.pk/upload' +
+          'http://server.webcomic.pk/upload' +
           series.coverURL +
           ')'
       }"
@@ -63,7 +63,7 @@
                   [ngStyle]="{
                     'background-image':
                       'url(' +
-                      'https://api.webcomics.pk/upload' +
+                      'http://server.webcomic.pk/upload' +
                       chapter.thumbURL +
                       ')'
                   }"
@@ -88,14 +88,6 @@
       </ng-template>
     </mat-tab>
     <mat-tab label="{{ 'Series.Similar' | translate }}">
-      <!--
-      <section class="movie--similar items" *ngIf="similarComics">
-        <app-comic-list
-          [comics]="similarComics"
-        >
-        </app-comic-list>
-      </section>
-      -->
       
     </mat-tab>
   </mat-tab-group>

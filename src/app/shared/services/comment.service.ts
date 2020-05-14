@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { map } from 'rxjs/operators';
 import { Comment } from '../models/comment.model';
+import { CommentListConfig } from '../models/comment-list-config.model';
 
 @Injectable()
 export class CommentsService {
@@ -12,13 +13,13 @@ export class CommentsService {
     private apiService: ApiService
   ) {}
 
-  query(): Observable<{articles: Comment[], articlesCount: number}> {
+  query(config: CommentListConfig): Observable<{comments: Comment[], commentsCount: number}> {
     // Convert any filters over to Angular's URLSearchParams
     const params = {};
 
     return this.apiService
     .get(
-      '/comments',
+      '/comments/' + config.id,
       new HttpParams({ fromObject: params })
     );
   }
