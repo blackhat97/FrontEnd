@@ -4,5 +4,8 @@ export interface Comment {
   id: number;
   body: string;
   createdAt: string;
+  updatedAt: string;
+  favorited: boolean;
+  favoritesCount: number;
   author: Profile;
 }

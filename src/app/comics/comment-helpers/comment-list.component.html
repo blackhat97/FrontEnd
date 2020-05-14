@@ -1,0 +1,14 @@
+<app-article-preview
+  *ngFor="let comment of results"
+  [comment]="comment">
+</app-article-preview>
+
+<div class="app-comment-preview"
+  [hidden]="!loading">
+  Loading comments...
+</div>
+
+<div class="app-comment-preview"
+  [hidden]="loading || results.length">
+  No comments are here... yet.
+</div>
