@@ -5,7 +5,7 @@
   </div>
   <ng-template [ngIf]="content.pages">
     <div *ngFor="let page of content.pages">
-      <img *ngIf="page.imgURL" [src]="'http://server.webcomic.pk/upload' + page.imgURL"
+      <img *ngIf="page.imgURL" [src]="'http://server.webcomics.pk/upload' + page.imgURL"
       alt="poster comic">
       <img *ngIf="!page.imgURL" src="/img/no_poster_available.jpg" alt="No poster available">
     </div>
@@ -13,8 +13,7 @@
 
     <app-viewer-arrow (prev)="onPrev()" (next)="onNext()"></app-viewer-arrow>
 
-    <app-comment-list [limit]="10" [config]="id"></app-comment-list>
-
+    <app-comment-list [limit]="10" [config]="listConfig"></app-comment-list>
     
   </ng-template>
 </div>

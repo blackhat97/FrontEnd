@@ -1,29 +1,29 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Params, Router, NavigationEnd } from '@angular/router';
 import { ComicService } from 'src/app/shared/services/comic/comic.service';
 import { ComicViewerModel } from 'src/app/shared/models/comic-viewer.model';
+import { CommentListConfig } from 'src/app/shared/models/comment-list-config.model';
 
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.scss']
 })
-export class ViewerComponent implements OnInit, OnDestroy {
+export class ViewerComponent implements OnInit {
   navigationSubscription: any;
 
   id: number;
   loading: boolean;
   content: ComicViewerModel;
+  listConfig: CommentListConfig = {
+    id: 0,
+  };
+
   constructor(
     private route: ActivatedRoute,
     private comicService: ComicService,
     private router: Router
   ) {
-    this.navigationSubscription = this.router.events.subscribe((e: any) => {
-      if (e instanceof NavigationEnd) {
-        this.initialiseInvites();
-      }
-    });
 
     this.route.params.subscribe((params: Params) => {
       this.id = params.id;
@@ -34,17 +34,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loading = true;
+    this.listConfig = {id: this.id};
   }
 
-  ngOnDestroy() {
-    if (this.navigationSubscription) {  
-       this.navigationSubscription.unsubscribe();
-    }
-  }
-
-  initialiseInvites() {
-    //Todo
-  }
 
   getContents(param) {
     this.comicService.getEpisodeContents(param).subscribe(res => {

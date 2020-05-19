@@ -14,8 +14,9 @@ import { ShareModalComponent } from './components/share-modal/share-modal.compon
 import { UserService } from './services/user.service';
 import { JwtService } from './services/jwt.service';
 import { ApiService } from './services/api.service';
-import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } from './components/comment-helpers';
+import { CommentPreviewComponent, CommentListComponent } from './components/comment-helpers';
 import { ModalModule } from './_modal';
+import { CommentsService } from './services/comment.service';
 
 @NgModule({
   imports: [
@@ -28,7 +29,6 @@ import { ModalModule } from './_modal';
   ],
   exports: [
     CommentListComponent,
-    CommentMetaComponent,
     CommentPreviewComponent,
     HeaderComponent,
     FooterComponent,
@@ -40,7 +40,6 @@ import { ModalModule } from './_modal';
   ],
   declarations: [
     CommentListComponent,
-    CommentMetaComponent,
     CommentPreviewComponent,
     HeaderComponent,
     FooterComponent,
@@ -57,6 +56,7 @@ import { ModalModule } from './_modal';
     ApiService,
     UserService,
     JwtService,
+    CommentsService,
   ]
 })
 

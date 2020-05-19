@@ -1,13 +1,13 @@
 <div class="comment-preview">
   <div class="comment-meta">
-    <a [routerLink]="['/profile', comment.author.username]">
-      <img [src]="comment.author.image" />
+    <a [routerLink]="['/profile', comment.sender.username]">
+      <img [src]="comment.sender.image" />
     </a>
   
     <div class="info">
       <a class="author"
-        [routerLink]="['/profile', comment.author.username]">
-        {{ comment.author.username }}
+        [routerLink]="['/profile', comment.sender.username]">
+        {{ comment.sender.username }}
       </a>
       <span class="date">
         {{ comment.createdAt | date: 'longDate' }}

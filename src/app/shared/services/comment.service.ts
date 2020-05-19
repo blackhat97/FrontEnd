@@ -14,9 +14,7 @@ export class CommentsService {
   ) {}
 
   query(config: CommentListConfig): Observable<{comments: Comment[], commentsCount: number}> {
-    // Convert any filters over to Angular's URLSearchParams
     const params = {};
-
     return this.apiService
     .get(
       '/comments/' + config.id,
