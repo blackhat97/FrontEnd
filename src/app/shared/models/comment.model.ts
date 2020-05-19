@@ -7,5 +7,5 @@ export interface Comment {
   updatedAt: string;
   favorited: boolean;
   favoritesCount: number;
-  author: Profile;
+  //sender: Profile;
 }

@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { JwtService } from './services/jwt.service';
 import { ApiService } from './services/api.service';
 import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } from './components/comment-helpers';
+import { CommentsService } from './services/comment.service';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } f
     ApiService,
     UserService,
     JwtService,
+    CommentsService,
   ]
 })
 

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://server.webcomic.pk/'
+  api_url: 'http://server.webcomics.pk/'
 };
 
 /*

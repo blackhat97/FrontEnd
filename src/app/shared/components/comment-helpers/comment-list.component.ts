@@ -10,7 +10,7 @@ import { CommentListConfig } from '../../models/comment-list-config.model';
 })
 export class CommentListComponent {
   constructor (
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
   ) {
   }
 
@@ -41,7 +41,6 @@ export class CommentListComponent {
     this.commentsService.query(this.query)
     .subscribe(data => {
       this.loading = false;
-      console.log(data);
       this.results = data.comments;
 
     });
