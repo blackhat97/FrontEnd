@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { JwtService } from './services/jwt.service';
 import { ApiService } from './services/api.service';
 import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } from './components/comment-helpers';
+import { ModalModule } from './_modal';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } f
     RouterModule,
     SharedMaterialModule,
     TranslateModule,
+    ModalModule,
   ],
   exports: [
     CommentListComponent,
@@ -34,6 +36,7 @@ import { CommentPreviewComponent, CommentListComponent, CommentMetaComponent } f
     ShareModalComponent,
     SharedMaterialModule,
     TranslateModule,
+    ModalModule,
   ],
   declarations: [
     CommentListComponent,

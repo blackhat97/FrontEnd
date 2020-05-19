@@ -4,7 +4,10 @@ import { StorageService } from '../shared/services/storage/storage.service';
 import { Subscription, Observable } from 'rxjs';
 import { ComicService } from '../shared/services/comic/comic.service';
 import { ComicModel } from '../shared/models/comic.model';
+import { ModalService } from '../shared/_modal';
+import { environment } from 'src/environments/environment.prod';
 
+const PLAYSTORE_URL = environment.play_store_url;
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.component.html',
@@ -25,7 +28,7 @@ export class ComicsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private storageService: StorageService,
-
+    private modalService: ModalService,
   ) {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
@@ -36,6 +39,7 @@ export class ComicsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.comicsType = params;
     });
+
   }
 
   ngOnInit() {
@@ -71,6 +75,19 @@ export class ComicsComponent implements OnInit {
 
   reloadScroll() {
     this.getComics(this.comicsType);
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  } 
+
+  closeModal(id: string) {
+      this.modalService.close(id);
+  }
+
+  gotoApp() {
+    window.location.href = PLAYSTORE_URL;
+    return true;
   }
 
 

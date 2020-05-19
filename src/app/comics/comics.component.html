@@ -38,3 +38,11 @@
     </app-comic-list>
   </ng-template>
 </div>
+
+<button (click)="openModal('initial-modal')">Open Initial Modal</button>
+<jw-modal id="initial-modal">
+  <button mat-button color="accent" (click)="gotoApp()">Go to App</button>
+  <br />
+  <a (click)="closeModal('initial-modal');">It's okay. I'll look at it on the mobile web.</a>
+</jw-modal>
+

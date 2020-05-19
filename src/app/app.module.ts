@@ -20,6 +20,8 @@ import { SharedModule } from './shared/shared.module';
 import { SeriesComponent } from './comics/series/series.component';
 import { ViewerComponent } from './comics/viewer/viewer.component';
 import { ViewerArrowComponent } from './comics/viewer/viewer-arrow/viewer-arrow.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
    declarations: [
@@ -43,7 +45,8 @@ import { ViewerArrowComponent } from './comics/viewer/viewer-arrow/viewer-arrow.
       LazyLoadImageModule,
       CoreModule,
       SharedModule,
-      DeviceDetectorModule.forRoot()
+      DeviceDetectorModule.forRoot(),
+      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
    StorageService

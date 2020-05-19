@@ -1,5 +1,20 @@
 <div class="comment-preview">
-  <app-comment-meta [comment]="comment">
-  </app-comment-meta>
+  <div class="comment-meta">
+    <a [routerLink]="['/profile', comment.author.username]">
+      <img [src]="comment.author.image" />
+    </a>
+  
+    <div class="info">
+      <a class="author"
+        [routerLink]="['/profile', comment.author.username]">
+        {{ comment.author.username }}
+      </a>
+      <span class="date">
+        {{ comment.createdAt | date: 'longDate' }}
+      </span>
+    </div>
+  
+    <ng-content></ng-content>
+  </div>
   <h1>{{ comment.body }}</h1>
 </div>
