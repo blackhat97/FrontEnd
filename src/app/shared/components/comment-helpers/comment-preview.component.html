@@ -1,20 +1,23 @@
 <div class="comment-preview">
   <div class="comment-meta">
-    <a [routerLink]="['/profile', comment.sender.username]">
+    <a>
       <img [src]="comment.sender.image" />
     </a>
-  
     <div class="info">
-      <a class="author"
-        [routerLink]="['/profile', comment.sender.username]">
+      <a class="author">
         {{ comment.sender.username }}
       </a>
       <span class="date">
         {{ comment.createdAt | date: 'longDate' }}
       </span>
     </div>
-  
-    <ng-content></ng-content>
+    <app-favorite-button
+      [comment]="comment"
+      (toggle)="onToggleFavorite($event)"
+      class="pull-xs-right">
+      {{comment.favoritesCount}}
+    </app-favorite-button>
+    
   </div>
-  <h1>{{ comment.body }}</h1>
+  <p>{{ comment.body }}</p>
 </div>

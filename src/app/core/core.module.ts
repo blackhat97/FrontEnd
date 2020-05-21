@@ -10,6 +10,9 @@ import { ComicStoreService } from '../shared/services/comic/comic-store.service'
 import { ImagesService } from '../shared/services/comic/images.service';
 import { ComicService } from '../shared/services/comic/comic.service';
 import { SearchService } from '../shared/services/comic/search.service';
+import { ProgressInterceptor } from './interceptors/progress.interceptor';
+import { ProgressBarService } from '../shared/services/progress-bar.service';
+import { HttpConfigInterceptor } from './interceptors/httpConfig.interceptor';
 
 @NgModule({
   imports: [
@@ -29,7 +32,15 @@ import { SearchService } from '../shared/services/comic/search.service';
   ],
   declarations: [
   ],
-  providers: [ComicService, SearchService, ImagesService, ComicStoreService]
+  providers: [
+    ComicService, 
+    SearchService, 
+    ImagesService, 
+    ComicStoreService,
+    {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true}
+
+  ]
 })
 
 export class CoreModule {

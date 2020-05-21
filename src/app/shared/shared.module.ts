@@ -17,6 +17,7 @@ import { ApiService } from './services/api.service';
 import { CommentPreviewComponent, CommentListComponent } from './components/comment-helpers';
 import { ModalModule } from './_modal';
 import { CommentsService } from './services/comment.service';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { CommentsService } from './services/comment.service';
     FooterComponent,
     TopBarComponent,
     ShareModalComponent,
+    FavoriteButtonComponent,
     SharedMaterialModule,
     TranslateModule,
     ModalModule,
@@ -47,6 +49,7 @@ import { CommentsService } from './services/comment.service';
     SearchComponent,
     ShareModalComponent,
     NavigationMainComponent,
+    FavoriteButtonComponent,
   ],
   entryComponents: [
     ShareModalComponent,

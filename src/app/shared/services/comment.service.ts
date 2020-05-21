@@ -22,7 +22,13 @@ export class CommentsService {
     );
   }
 
+  favorite(slug): Observable<Comment> {
+    return this.apiService.post('/comments/' + slug + '/favorite');
+  }
 
+  unfavorite(slug): Observable<Comment> {
+    return this.apiService.delete('/comments/' + slug + '/favorite');
+  }
 
 
 }
