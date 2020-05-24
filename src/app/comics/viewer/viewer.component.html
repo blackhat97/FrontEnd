@@ -5,7 +5,7 @@
   </div>
   <ng-template [ngIf]="content.pages">
     <div *ngFor="let page of content.pages">
-      <img *ngIf="page.imgURL" [src]="'https://api.webcomics.pk/upload' + page.imgURL"
+      <img *ngIf="page.imgURL" [src]="'https://storage.googleapis.com/pkcomics' + page.imgURL"
       alt="poster comic" class="center">
       <img *ngIf="!page.imgURL" src="/img/no_poster_available.jpg" alt="No poster available">
     </div>

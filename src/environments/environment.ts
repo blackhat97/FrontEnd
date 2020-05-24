@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api_url: 'https://api.webcomics.pk/',
   play_store_url: 'https://play.google.com/store/apps/details?id=app.wah.pkcomics',
-
+  bucket_url: 'https://storage.googleapis.com/pkcomics',
 };
 
 /*
